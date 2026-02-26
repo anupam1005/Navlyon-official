@@ -62,7 +62,7 @@ const AboutSection = () => {
             <div className="card-elevated p-8 lg:p-10">
               <div className="grid grid-cols-2 gap-8">
                 <div className="text-center p-4">
-                  <div className="text-4xl lg:text-5xl font-bold text-primary mb-2">14+</div>
+                  <div className="text-4xl lg:text-5xl font-bold text-primary mb-2">25+</div>
                   <p className="text-muted-foreground text-sm">Projects Delivered</p>
                 </div>
                 <div className="text-center p-4">
