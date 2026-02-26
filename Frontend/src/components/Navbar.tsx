@@ -13,14 +13,20 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navLinks = [
-    { name: 'Home', href: '/' },
-    { name: 'About', href: '/about' },
-    { name: 'Services', href: '#services' },
-    { name: 'Portfolio', href: '#portfolio', hidden: true },
-    { name: 'Blog', href: '#blog' },
-    { name: 'Contact', href: '#contact' },
-  ];
+  interface NavLink {
+  name: string;
+  href: string;
+  hidden?: boolean;
+}
+
+const navLinks: NavLink[] = [
+  { name: 'Home', href: '/' },
+  { name: 'About', href: '/about' },
+  { name: 'Services', href: '#services' },
+  { name: 'Portfolio', href: '#portfolio' },
+  { name: 'Blog', href: '#blog' },
+  { name: 'Contact', href: '#contact' },
+];
 
   return (
     <nav

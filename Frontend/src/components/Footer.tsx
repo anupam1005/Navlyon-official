@@ -1,10 +1,16 @@
 import { Mail, Phone, MapPin, Linkedin, Twitter, Instagram } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
+interface FooterLink {
+  name: string;
+  href: string;
+  hidden?: boolean;
+}
+
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
-  const services = [
+  const services: FooterLink[] = [
     { name: 'Website Development', href: '#services' },
     { name: 'Mobile App Development', href: '#services' },
     { name: 'Backend & API', href: '#services' },
@@ -12,14 +18,14 @@ const Footer = () => {
     { name: 'Maintenance', href: '#services' },
   ];
 
-  const company = [
-    { name: 'Portfolio', href: '#portfolio', hidden: true },
+  const company: FooterLink[] = [
+    { name: 'Portfolio', href: '#portfolio' },
     { name: 'Testimonials', href: '#testimonials' },
     { name: 'Blog', href: '#blog' },
     { name: 'Contact', href: '#contact' },
   ];
 
-  const legal = [
+  const legal: FooterLink[] = [
     { name: 'About Us', href: '/about' },
     { name: 'Privacy Policy', href: '/privacy-policy' },
     { name: 'Terms & Conditions', href: '/terms-conditions' },

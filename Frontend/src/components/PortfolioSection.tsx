@@ -3,46 +3,18 @@ import { Button } from '@/components/ui/button';
 
 const projects = [
   {
-    title: 'GreenMart E-Commerce',
-    category: 'Website Development',
-    description: 'Complete e-commerce platform for an organic grocery store with payment integration, inventory management, and delivery tracking.',
-    tech: ['React', 'Node.js', 'PostgreSQL'],
-    image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&auto=format&fit=crop&q=80',
+    title: 'Mathematico',
+    category: 'Mobile Application',
+    description: 'Advanced mathematical computation platform with equation solving, graphing capabilities, and collaborative problem-solving features.',
+    tech: ['TypeScript', 'React Native', 'Node.js'],
+    image: 'https://images.unsplash.com/photo-1635070031070-24e800920c70?w=800&auto=format&fit=crop&q=80',
   },
   {
-    title: 'FitTrack Mobile App',
-    category: 'Mobile Development',
-    description: 'Fitness tracking application with workout plans, progress analytics, and social features for a Bangalore-based gym chain.',
-    tech: ['React Native', 'Firebase', 'Redux'],
-    image: 'https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?w=800&auto=format&fit=crop&q=80',
-  },
-  {
-    title: 'CloudBooks SaaS',
-    category: 'Full Stack',
-    description: 'Cloud-based accounting software for small businesses with invoicing, expense tracking, and GST compliance features.',
-    tech: ['Vue.js', 'Django', 'AWS'],
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&auto=format&fit=crop&q=80',
-  },
-  {
-    title: 'MedConnect Portal',
-    category: 'Healthcare',
-    description: 'Patient appointment booking and teleconsultation platform for a multi-specialty clinic with 15+ doctors.',
-    tech: ['Next.js', 'Prisma', 'WebRTC'],
-    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&auto=format&fit=crop&q=80',
-  },
-  {
-    title: 'EduLearn LMS',
-    category: 'Education',
-    description: 'Learning management system with live classes, assignments, and progress tracking for a coaching institute.',
-    tech: ['React', 'Express', 'MongoDB'],
-    image: 'https://images.unsplash.com/photo-1501504905252-473c47e087f8?w=800&auto=format&fit=crop&q=80',
-  },
-  {
-    title: 'QuickServe Restaurant',
-    category: 'Restaurant Tech',
-    description: 'Digital ordering system with QR menus, kitchen display, and POS integration for a restaurant chain.',
-    tech: ['Flutter', 'Firebase', 'Stripe'],
-    image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&auto=format&fit=crop&q=80',
+    title: 'HomeFood',
+    category: 'Mobile Application',
+    description: 'Food delivery and restaurant management app with real-time tracking, menu ordering, and customer loyalty features.',
+    tech: ['JavaScript', 'React Native', 'EAS Build'],
+    image: 'https://images.unsplash.com/photo-1504754520576-846f1daa5a1?w=800&auto=format&fit=crop&q=80',
   },
 ];
 
@@ -119,10 +91,17 @@ const PortfolioSection = () => {
         {/* CTA */}
         <div className="text-center mt-12 animate-fade-up">
           <p className="text-muted-foreground mb-6">
-            Want to see your project join this gallery?
+            Want to see your demo? Check out our work in action!
           </p>
+          <div className="mb-6">
+            <img 
+              src="/demo-pic.jpg" 
+              alt="Demo screenshot" 
+              className="mx-auto rounded-lg shadow-lg max-w-md"
+            />
+          </div>
           <Button variant="default" size="lg">
-            Start Your Project
+            View Live Demo
           </Button>
         </div>
       </div>
