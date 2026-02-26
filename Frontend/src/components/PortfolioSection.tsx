@@ -7,26 +7,27 @@ const projects = [
     category: 'Mobile Application',
     description: 'Advanced mathematical computation platform with equation solving, graphing capabilities, and collaborative problem-solving features.',
     tech: ['TypeScript', 'React Native', 'Node.js'],
-    image: 'C:\\Users\\danup\\OneDrive\\Desktop\\Final File for Mathematico\\WhatsApp Image 2026-02-26 at 16.07.11.jpeg',
+    image: '/mathematico.jpeg',
   },
   {
     title: 'HomeFood',
     category: 'Mobile Application',
     description: 'Food delivery and restaurant management app with real-time tracking, menu ordering, and customer loyalty features.',
     tech: ['JavaScript', 'React Native', 'Firebase'],
-    image: 'C:\\HomeFood\\Frontend-app\\assets',
+    image: '/HomeFood.jpg',
   },
   {
     title: 'CONQUEST-WARRIORS',
     category: 'Web Development',
     description: 'Action-packed multiplayer conquest game with strategic gameplay and real-time battle mechanics.',
-    tech: ['TypeScript', 'Html', 'css'],  },
+    tech: ['TypeScript', 'Html', 'css'],
+  },
   {
     title: 'Mathematico-web',
     category: 'Web Platform',
     description: 'Web-based version of Mathematico with enhanced UI/UX and cloud synchronization features.',
     tech: ['TypeScript', 'Next.js', 'PostgreSQL'],
-     image: 'C:\\Users\\danup\\OneDrive\\Desktop\\Final File for Mathematico\\WhatsApp Image 2026-02-26 at 16.07.11.jpeg',
+    image: '/mathematico.jpeg',
   },
   {
     title: 'cosmos-login-site',
@@ -70,11 +71,19 @@ const PortfolioSection = () => {
             >
               {/* Image */}
               <div className="relative h-48 overflow-hidden">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                />
+                {project.image ? (
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                ) : (
+                  <div className="w-full h-full bg-muted flex items-center justify-center">
+                    <span className="text-muted-foreground text-lg font-medium">
+                      {project.title}
+                    </span>
+                  </div>
+                )}
                 <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <Button variant="heroOutline" size="sm" className="w-full">
