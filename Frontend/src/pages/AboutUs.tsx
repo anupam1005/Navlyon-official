@@ -7,19 +7,30 @@ const AboutUs = () => {
       <Navbar />
       <main className="container mx-auto px-4 py-16 max-w-4xl">
         <div className="prose prose-slate max-w-none">
-          <h1 className="text-4xl font-bold text-center mb-8">About Navlyon</h1>
-          
-          <section className="mb-12">
-            <p className="text-lg leading-relaxed mb-6">
-              Navlyon (OPC) Private Ltd. is a company incorporated under the provisions of the Companies Act, 2013 (India) as a One Person Company (OPC).
-            </p>
-            <p className="text-lg leading-relaxed mb-6">
-              The company operates as a technology solutions provider, offering structured digital development services including website development, custom web applications, and administrative software systems.
-            </p>
-            <p className="text-lg leading-relaxed">
-              Navlyon functions as an independent corporate entity and does not claim affiliation, endorsement, or partnership with any external organization unless formally documented.
-            </p>
-          </section>
+          <div className="flex flex-col lg:flex-row gap-8 mb-12">
+            <div className="lg:w-1/3">
+              <div className="relative">
+                <img 
+                  src="/MyPic.png" 
+                  alt="Navlyon Professional" 
+                  className="w-full rounded-lg shadow-lg object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-lg"></div>
+              </div>
+            </div>
+            <div className="lg:w-2/3">
+              <h1 className="text-4xl font-bold mb-6">About Navlyon</h1>
+              <p className="text-lg leading-relaxed mb-6">
+                Navlyon (OPC) Private Ltd. is a company incorporated under the provisions of the Companies Act, 2013 (India) as a One Person Company (OPC).
+              </p>
+              <p className="text-lg leading-relaxed mb-6">
+                The company operates as a technology solutions provider, offering structured digital development services including website development, custom web applications, and administrative software systems.
+              </p>
+              <p className="text-lg leading-relaxed">
+                Navlyon functions as an independent corporate entity and does not claim affiliation, endorsement, or partnership with any external organization unless formally documented.
+              </p>
+            </div>
+          </div>
 
           <section className="mb-12">
             <h2 className="text-3xl font-semibold mb-6">Our Services</h2>
