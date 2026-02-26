@@ -69,6 +69,30 @@ const PortfolioSection = () => {
               className="group card-elevated overflow-hidden animate-fade-up"
               style={{ animationDelay: `${index * 100}ms` }}
             >
+              {/* Image */}
+              <div className="relative h-48 overflow-hidden">
+                {project.image ? (
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                ) : (
+                  <div className="w-full h-full bg-muted flex items-center justify-center">
+                    <span className="text-muted-foreground text-lg font-medium">
+                      {project.title}
+                    </span>
+                  </div>
+                )}
+                <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <Button variant="heroOutline" size="sm" className="w-full">
+                    View Details
+                    <ExternalLink className="w-4 h-4" />
+                  </Button>
+                </div>
+              </div>
+
               {/* Content */}
               <div className="p-6">
                 <span className="text-xs font-semibold text-amber-warm uppercase tracking-wider">
