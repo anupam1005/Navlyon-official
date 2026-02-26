@@ -20,7 +20,7 @@ const projects = [
 
 const PortfolioSection = () => {
   return (
-    <section id="portfolio" className="section-padding bg-background hidden">
+    <section id="portfolio" className="section-padding bg-background">
       <div className="container-nav">
         {/* Header */}
         <div className="text-center mb-16 animate-fade-up">
