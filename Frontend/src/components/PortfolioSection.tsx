@@ -128,7 +128,7 @@ const PortfolioSection = () => {
           </p>
           <div className="mb-6">
             <img 
-              src="/demo-pic.jpg" 
+              src="https://picsum.photos/seed/demo/800/600.jpg" 
               alt="Demo screenshot" 
               className="mx-auto rounded-lg shadow-lg max-w-md"
             />
