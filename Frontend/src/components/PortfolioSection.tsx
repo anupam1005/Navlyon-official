@@ -124,17 +124,10 @@ const PortfolioSection = () => {
         {/* CTA */}
         <div className="text-center mt-12 animate-fade-up">
           <p className="text-muted-foreground mb-6">
-            Want to see your demo? Check out our work in action!
+            Want to see your project join this gallery?
           </p>
-          <div className="mb-6">
-            <img 
-              src="https://picsum.photos/seed/demo/800/600.jpg" 
-              alt="Demo screenshot" 
-              className="mx-auto rounded-lg shadow-lg max-w-md"
-            />
-          </div>
           <Button variant="default" size="lg">
-            View Live Demo
+            Start Your Project
           </Button>
         </div>
       </div>
