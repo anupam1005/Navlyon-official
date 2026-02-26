@@ -5,6 +5,7 @@
   "outputDirectory": "dist",
   "installCommand": "npm install",
   "framework": "vite",
+  "rootDirectory": "Frontend",
   "rewrites": [
     {
       "source": "/(.*)",
