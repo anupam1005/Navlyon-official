@@ -6,7 +6,7 @@ import EMISection from '@/components/EMISection';
 import ProcessSection from '@/components/ProcessSection';
 import WhyChooseSection from '@/components/WhyChooseSection';
 import PortfolioSection from '@/components/PortfolioSection';
-import TestimonialsSection from '@/components/TestimonialsSection';
+// import TestimonialsSection from '@/components/TestimonialsSection';
 import BlogSection from '@/components/BlogSection';
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
@@ -22,7 +22,7 @@ const Index = () => {
       <ProcessSection />
       <WhyChooseSection />
       <PortfolioSection />
-      <TestimonialsSection />
+      {/* <TestimonialsSection /> */}
       <BlogSection />
       <ContactSection />
       <Footer />

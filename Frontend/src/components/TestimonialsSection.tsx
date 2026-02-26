@@ -2,23 +2,21 @@ import { Star, Quote } from 'lucide-react';
 
 const testimonials = [
   {
-    name: 'Priya Sharma',
-    role: 'Founder, GreenMart',
-    company: 'E-Commerce',
-    content: 'Navlyon transformed our small grocery store into a thriving online business. The EMI option made it possible for us to invest in technology without straining our budget. Sales increased 3x within 6 months!',
-    rating: 5,
+    name: 'Dipanjan Chaterjee',
+    role: 'Founder, Mathematico',
+    company: 'Teaching',
+    content: 'Navlyon transformed my Teaching Career into a thriving online System. The EMI option made it possible for us to invest in technology without straining our budget.',
+    rating: 4,
   },
   {
     name: 'Rahul Mehta',
-    role: 'CEO, FitLife Gyms',
-    company: 'Fitness',
-    content: 'The mobile app they built for us has become our biggest differentiator. Anupam and his team truly understood our vision and delivered beyond expectations. Professional yet affordable.',
+    company: 'Student',
+    content: 'The Project they built for us has become our biggest differentiator. Anupam and his team truly understood our vision and delivered beyond expectations. Professional yet affordable.',
     rating: 5,
   },
   {
     name: 'Dr. Sunita Patel',
-    role: 'Director, MedConnect Clinic',
-    company: 'Healthcare',
+    company: 'Student',
     content: 'During COVID, we needed to go digital fast. Navlyon delivered our teleconsultation platform in just 6 weeks. The 6-month EMI plan helped us manage cash flow during a difficult time.',
     rating: 5,
   },
