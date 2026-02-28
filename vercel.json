@@ -5,14 +5,6 @@
   "installCommand": "cd Frontend && npm install",
   "framework": "vite",
 
-  "redirects": [
-    {
-      "source": "/(.*)",
-      "destination": "https://navlyon.com/$1",
-      "permanent": true
-    }
-  ],
-
   "headers": [
     {
       "source": "/favicon.ico",
