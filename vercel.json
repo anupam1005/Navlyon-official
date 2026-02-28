@@ -1,120 +1,14 @@
 {
   "version": 2,
-  "buildCommand": "cd Frontend && npm run build",
-  "outputDirectory": "Frontend/dist",
-  "installCommand": "cd Frontend && npm install",
   "framework": "vite",
-
-  "headers": [
-    {
-      "source": "/favicon.ico",
-      "headers": [
-        {
-          "key": "Content-Type",
-          "value": "image/x-icon"
-        }
-      ]
-    },
-    {
-      "source": "/favicon-16x16.png",
-      "headers": [
-        {
-          "key": "Content-Type",
-          "value": "image/png"
-        }
-      ]
-    },
-    {
-      "source": "/favicon-32x32.png",
-      "headers": [
-        {
-          "key": "Content-Type",
-          "value": "image/png"
-        }
-      ]
-    },
-    {
-      "source": "/favicon-48x48.png",
-      "headers": [
-        {
-          "key": "Content-Type",
-          "value": "image/png"
-        }
-      ]
-    },
-    {
-      "source": "/favicon-192x192.png",
-      "headers": [
-        {
-          "key": "Content-Type",
-          "value": "image/png"
-        }
-      ]
-    },
-    {
-      "source": "/logo-256.png",
-      "headers": [
-        {
-          "key": "Content-Type",
-          "value": "image/png"
-        }
-      ]
-    },
-    {
-      "source": "/logo-512.png",
-      "headers": [
-        {
-          "key": "Content-Type",
-          "value": "image/png"
-        }
-      ]
-    },
-    {
-      "source": "/sitemap.xml",
-      "headers": [
-        {
-          "key": "Content-Type",
-          "value": "application/xml"
-        }
-      ]
-    },
-    {
-      "source": "/robots.txt",
-      "headers": [
-        {
-          "key": "Content-Type",
-          "value": "text/plain"
-        }
-      ]
-    }
-  ],
+  "buildCommand": "cd Frontend && npm run build",
+  "installCommand": "cd Frontend && npm install",
+  "outputDirectory": "Frontend/dist",
 
   "rewrites": [
     {
-      "source": "/robots.txt",
-      "destination": "/robots.txt"
-    },
-    {
       "source": "/(.*)",
       "destination": "/index.html"
-    }
-  ],
-
-  "redirects": [
-    {
-      "source": "http://navlyon.com/:path*",
-      "destination": "https://navlyon.com/:path*",
-      "permanent": true
-    },
-    {
-      "source": "https://www.navlyon.com/:path*",
-      "destination": "https://navlyon.com/:path*",
-      "permanent": true
-    },
-    {
-      "source": "http://www.navlyon.com/:path*",
-      "destination": "https://navlyon.com/:path*",
-      "permanent": true
     }
   ]
 }
