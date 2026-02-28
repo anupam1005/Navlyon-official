@@ -102,18 +102,18 @@
 
   "redirects": [
     {
-      "source": "/(.*)",
-      "destination": "https://navlyon.com/$1",
+      "source": "http://navlyon.com/:path*",
+      "destination": "https://navlyon.com/:path*",
       "permanent": true
     },
     {
-      "source": "https://www.navlyon.com/(.*)",
-      "destination": "https://navlyon.com/$1",
+      "source": "https://www.navlyon.com/:path*",
+      "destination": "https://navlyon.com/:path*",
       "permanent": true
     },
     {
-      "source": "http://www.navlyon.com/(.*)",
-      "destination": "https://navlyon.com/$1",
+      "source": "http://www.navlyon.com/:path*",
+      "destination": "https://navlyon.com/:path*",
       "permanent": true
     }
   ]

@@ -23,17 +23,14 @@ const HeroSection = () => {
 
             {/* Main Heading */}
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] font-bold text-foreground leading-[1.15] mb-5 animate-fade-up animation-delay-100">
-              Technology{' '}
+              Navigating Your Business Beyond Limits{' '}
               <br className="hidden sm:block" />
-              That Grows{' '}
-              <br className="hidden sm:block" />
-              Your Business
+              with Easy EMI
             </h1>
 
             {/* Subheading */}
             <p className="text-base sm:text-lg text-muted-foreground mb-8 max-w-md leading-relaxed animate-fade-up animation-delay-200">
-              From websites to mobile apps, we deliver professional tech solutions 
-              designed for Indian startups and small businesses. Pay flexibly with 3, 6, or 9-month EMI options.
+              Navlyon builds Premium Websites, scalable Mobile Applications, and Modern Digital Solutions for growing businesses worldwide
             </p>
 
             {/* Pricing Cards */}
