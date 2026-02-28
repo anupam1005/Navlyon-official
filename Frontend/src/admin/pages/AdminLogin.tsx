@@ -50,12 +50,14 @@ export default function AdminLogin() {
       })
 
       if (authError) {
+        console.error('Supabase auth error:', authError)
         setError("Invalid email or password")
         reset()
         return
       }
 
       if (!authData.user) {
+        console.error('No user data returned from auth')
         setError("Authentication failed")
         reset()
         return
@@ -68,7 +70,16 @@ export default function AdminLogin() {
         .eq('id', authData.user.id)
         .single()
 
-      if (profileError || !profile) {
+      if (profileError) {
+        console.error('Profile fetch error:', profileError)
+        setError("User profile not found")
+        await supabase.auth.signOut()
+        reset()
+        return
+      }
+
+      if (!profile) {
+        console.error('No profile found for user:', authData.user.id)
         setError("User profile not found")
         await supabase.auth.signOut()
         reset()
@@ -84,12 +95,24 @@ export default function AdminLogin() {
           navigate(`/admin/client/${profile.client_id}`)
           break
         default:
+          console.error('Unauthorized role:', profile.role)
           setError("Unauthorized Access")
           await supabase.auth.signOut()
           reset()
       }
     } catch (err) {
-      setError("An unexpected error occurred")
+      console.error('Login error:', err)
+      
+      // Handle network errors specifically
+      if (err instanceof Error) {
+        if (err.message.includes('fetch') || err.message.includes('network')) {
+          setError("Network error. Please check your connection.")
+        } else {
+          setError("An unexpected error occurred")
+        }
+      } else {
+        setError("An unexpected error occurred")
+      }
       reset()
     } finally {
       setIsLoading(false)
