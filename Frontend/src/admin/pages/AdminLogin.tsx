@@ -43,77 +43,55 @@ export default function AdminLogin() {
     setError(null)
 
     try {
-      // Authenticate with Supabase
+      const email = data.email.trim()
+      const password = data.password.trim()
+
       const { data: authData, error: authError } = await supabase.auth.signInWithPassword({
-        email: data.email,
-        password: data.password,
+        email,
+        password
       })
 
       if (authError) {
-        console.error('Supabase auth error:', authError)
-        setError("Invalid email or password")
-        reset()
+        console.error("Auth error:", authError)
+        setError(authError.message)
         return
       }
 
       if (!authData.user) {
-        console.error('No user data returned from auth')
-        setError("Authentication failed")
-        reset()
+        setError("Login failed. No user returned.")
         return
       }
 
-      // Fetch user profile to check role
       const { data: profile, error: profileError } = await supabase
-        .from('profiles')
-        .select('role, client_id')
-        .eq('id', authData.user.id)
+        .from("profiles")
+        .select("role, client_id")
+        .eq("id", authData.user.id)
         .single()
 
       if (profileError) {
-        console.error('Profile fetch error:', profileError)
-        setError("User profile not found")
-        await supabase.auth.signOut()
-        reset()
+        console.error("Profile fetch error:", profileError)
+        setError("Profile not found.")
         return
       }
 
       if (!profile) {
-        console.error('No profile found for user:', authData.user.id)
-        setError("User profile not found")
-        await supabase.auth.signOut()
-        reset()
+        console.error("No profile found for user:", authData.user.id)
+        setError("Profile not found.")
         return
       }
 
-      // Redirect based on role
-      switch (profile.role) {
-        case 'super_admin':
-          navigate('/admin/super')
-          break
-        case 'client_admin':
-          navigate(`/admin/client/${profile.client_id}`)
-          break
-        default:
-          console.error('Unauthorized role:', profile.role)
-          setError("Unauthorized Access")
-          await supabase.auth.signOut()
-          reset()
-      }
-    } catch (err) {
-      console.error('Login error:', err)
-      
-      // Handle network errors specifically
-      if (err instanceof Error) {
-        if (err.message.includes('fetch') || err.message.includes('network')) {
-          setError("Network error. Please check your connection.")
-        } else {
-          setError("An unexpected error occurred")
-        }
+      if (profile.role === "super_admin") {
+        navigate("/admin/super")
+      } else if (profile.role === "client_admin") {
+        navigate(`/admin/client/${profile.client_id}`)
       } else {
-        setError("An unexpected error occurred")
+        console.error("Unauthorized role:", profile.role)
+        setError("Unauthorized access.")
       }
-      reset()
+
+    } catch (err) {
+      console.error("Unexpected error:", err)
+      setError("Something went wrong.")
     } finally {
       setIsLoading(false)
     }
