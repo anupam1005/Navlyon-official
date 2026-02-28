@@ -46,21 +46,44 @@ export default function AdminLogin() {
       const email = data.email.trim()
       const password = data.password.trim()
 
+      console.log('=== LOGIN ATTEMPT ===')
+      console.log('Email:', email)
+      console.log('Environment:', import.meta.env.MODE)
+      console.log('Origin:', typeof window !== 'undefined' ? window.location.origin : 'SSR')
+      console.log('===================')
+
       const { data: authData, error: authError } = await supabase.auth.signInWithPassword({
         email,
         password
       })
 
+      // Handle network/fetch errors separately
       if (authError) {
-        console.error("Auth error:", authError)
-        setError(authError.message)
+        console.error("Auth error details:", {
+          message: authError.message,
+          status: authError.status,
+          name: authError.name,
+          fullError: authError
+        })
+
+        // Specific handling for network/CORS errors
+        if (authError.message?.includes('Failed to fetch') || 
+            authError.message?.includes('NetworkError') ||
+            authError.message?.includes('CORS')) {
+          setError("Network error. Please check your internet connection and try again.")
+        } else {
+          setError(authError.message || "Authentication failed.")
+        }
         return
       }
 
       if (!authData.user) {
+        console.error("No user returned from auth")
         setError("Login failed. No user returned.")
         return
       }
+
+      console.log("Auth successful for user:", authData.user.id)
 
       const { data: profile, error: profileError } = await supabase
         .from("profiles")
@@ -69,8 +92,13 @@ export default function AdminLogin() {
         .single()
 
       if (profileError) {
-        console.error("Profile fetch error:", profileError)
-        setError("Profile not found.")
+        console.error("Profile fetch error:", {
+          message: profileError.message,
+          details: profileError.details,
+          hint: profileError.hint,
+          code: profileError.code
+        })
+        setError("Profile not found or access denied.")
         return
       }
 
@@ -79,6 +107,8 @@ export default function AdminLogin() {
         setError("Profile not found.")
         return
       }
+
+      console.log("Profile found:", { role: profile.role, client_id: profile.client_id })
 
       if (profile.role === "super_admin") {
         navigate("/admin/super")
@@ -89,9 +119,17 @@ export default function AdminLogin() {
         setError("Unauthorized access.")
       }
 
-    } catch (err) {
-      console.error("Unexpected error:", err)
-      setError("Something went wrong.")
+    } catch (err: unknown) {
+      console.error("Unexpected login error:", err)
+      
+      // Handle specific error types
+      if (err instanceof TypeError && err.message.includes('fetch')) {
+        setError("Network connection failed. Please check your internet and try again.")
+      } else if (err instanceof Error) {
+        setError(`Login error: ${err.message}`)
+      } else {
+        setError("An unexpected error occurred during login.")
+      }
     } finally {
       setIsLoading(false)
     }

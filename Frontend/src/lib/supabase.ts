@@ -4,6 +4,13 @@ const validateEnvironmentVariables = () => {
   const supabaseUrl = import.meta.env.VITE_SUPABASE_URL
   const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY
 
+  // Debug logging for production
+  console.log('=== SUPABASE DEBUG ===')
+  console.log('supabaseUrl:', supabaseUrl)
+  console.log('typeof supabaseUrl:', typeof supabaseUrl)
+  console.log('window.location.origin:', typeof window !== 'undefined' ? window.location.origin : 'SSR')
+  console.log('===================')
+
   if (!supabaseUrl || !supabaseAnonKey) {
     const isDevelopment = import.meta.env.DEV
     if (isDevelopment) {
@@ -16,7 +23,10 @@ const validateEnvironmentVariables = () => {
     throw new Error('Missing required Supabase environment variables: VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY must be set')
   }
 
-  return { supabaseUrl, supabaseAnonKey }
+  // Ensure no trailing slash
+  const normalizedUrl = supabaseUrl.replace(/\/$/, '')
+
+  return { supabaseUrl: normalizedUrl, supabaseAnonKey }
 }
 
 const { supabaseUrl, supabaseAnonKey } = validateEnvironmentVariables()
