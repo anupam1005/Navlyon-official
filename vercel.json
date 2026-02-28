@@ -10,16 +10,6 @@
       "source": "/(.*)",
       "destination": "https://navlyon.com/$1",
       "permanent": true
-    },
-    {
-      "source": "https://www.navlyon.com/(.*)",
-      "destination": "https://navlyon.com/$1",
-      "permanent": true
-    },
-    {
-      "source": "http://www.navlyon.com/(.*)",
-      "destination": "https://navlyon.com/$1",
-      "permanent": true
     }
   ],
 
